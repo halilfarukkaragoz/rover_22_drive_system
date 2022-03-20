@@ -1,0 +1,17 @@
+<launch>
+	<arg name="length_of_vehicle" default="0.914" />
+	<arg name="width_of_vehicle"  default="0.824" />
+	<arg name="rpm_of_steering"   default="10" />
+	<arg name="version"       default="3.1.1" />
+	<arg name="odom_version" default="2_odom"/>
+	<!--arg name="cam_info_topic" default="/wide_stereo/left/camera_info" />
+	<arg name="output_frame" default="/torso_lift_link" /-->
+
+	<node name="steering" pkg="rover_22_drive_system" type="steering_v$(arg version)" output="screen" respawn="true">
+		<param name="length" type="double" value="$(arg length_of_vehicle)" />
+		<param name="width"  type="double" value="$(arg width_of_vehicle)" />
+		<param name="rpm"    type="double" value="$(arg rpm_of_steering)" />
+	</node>
+	<!--node name="steering_odom" pkg="rover_22_drive_system" type="steering_v$(arg odom_version)" output="screen" respawn="true"/-->
+	<!--include file="$(find rover_22_drive_system)/launch/joy2twist.launch" /-->
+</launch>

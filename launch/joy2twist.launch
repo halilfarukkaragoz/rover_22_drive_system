@@ -1,0 +1,11 @@
+<launch>
+	<arg name="max_cartesian_speed" default="0.914" />
+	<arg name="max_angular_speed_inPi"  default="0.824" />
+
+
+	<node name="joy2twist" pkg="rover_22_drive_system" type="joy2twist" output="screen" respawn="true">
+		<param name="V" type="double" value="$(arg max_cartesian_speed)" />
+		<param name="w"  type="double" value="$(arg max_angular_speed_inPi)" />
+
+	</node>
+</launch>
